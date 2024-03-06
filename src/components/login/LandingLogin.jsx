@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import Landing_Nav from '../landing/Landing_Nav';
+
 import './Login.css';
 
 
@@ -9,9 +9,9 @@ import './Login.css';
 function LandingLogin() {
   const navigate = useNavigate();
 
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -20,9 +20,30 @@ function LandingLogin() {
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    setErrorMessage('');
+   
+
+    if (!email ) {
+      setErrorMessage('Email is required');
+      return;
+    
+    }
+
+    if(!password) {
+      setErrorMessage('Password is required')
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/ ;
+
+    if (!emailRegex.test(email)){
+      setErrorMessage('invalid email format');
+      return ;
+    }
 
     const HOSTED_SERVER_URL = 'http://localhost:3000'; 
 
@@ -46,7 +67,9 @@ function LandingLogin() {
         
         
       } else {
-        alert('Login Failed!');
+        setErrorMessage('Login Failed !');
+        return ;
+        // alert('Login Failed!');
         // console.error('Login failed:', response.data.message);
         // console.error('Login failed:', response.data.message);
         
@@ -54,7 +77,8 @@ function LandingLogin() {
     } catch (error) {
       console.log("Reached here")
       console.error('Error during login:', error.response.data.message);
-      alert(error.response.data.message)
+      // alert(error.response.data.message)
+    //  setErrorMessage(error.response.data.message)
     }
   };
 
@@ -75,7 +99,11 @@ function LandingLogin() {
                 value={email}
                 onChange={handleEmailChange}
                 
+                
               />
+              {errorMessage && <p className="error-message">{errorMessage}</p>}
+              
+              
               <input
                 type="password"
                 placeholder="PASSWORD"

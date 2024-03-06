@@ -1,0 +1,56 @@
+
+table {
+    /* width: 100%; */
+    border-collapse: collapse;
+    margin-top: 150px;
+   width: 900px;
+    margin: 100px;
+    
+  }
+  
+
+  th {
+    background-color: #3d0000;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+  
+  }
+  
+ 
+  /* tr:nth-child(even) {
+    background-color: #c93a3a;
+  } 
+   */
+
+  td {
+    padding: 10px;
+    color: #ff3535;
+  }
+  
+  input {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    color: #ff3535;
+  }
+  
+
+  /* button {
+    background-color: #ff3535;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 30px;
+  }
+   */
+  
+  button:hover {
+    background-color: #010501;
+  }
+ 

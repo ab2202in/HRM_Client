@@ -7,6 +7,7 @@ import Landing_Page from "./Landing_Page";
 import AddUser from "../add_user/AddUser";
 import Dashboard from "../dashboard/DashBoard";
 // import Display from "../display/Display";
+import UserList from "../users_list/UserList";
 
 function Landing() {
     return(
@@ -22,6 +23,7 @@ function Landing() {
             <Route path="/admin" exact element={<Dashboard/>}/>
             <Route path="/add_user" exact element={<AddUser/>}/>
             <Route path="/home" exact element = {<Landing_Page/>}/>
+            <Route path="viewUser" exact element = {<UserList/>}/>
         </Routes>
         </>
        </Router> 
