@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './UserList.css';
+import { Link } from 'react-router-dom';
 
 const UserListPage = () => {
   const [data, setData] = useState([]);
@@ -38,8 +39,8 @@ const UserListPage = () => {
             <th>Last Name</th>
             <th>Email</th>
             <th>Password</th>
-            {/* <th>Edit</th>
-            <th>Save</th> */}
+            <th>Edit</th>
+            {/* <th>Save</th> */}
           </tr>
         </thead>
         <tbody>
@@ -59,10 +60,11 @@ const UserListPage = () => {
                 <input type="password" name="password" value={data.password} readOnly={true} />
               </td>
               
-              {/* <td>
-                <button onClick={() => handleEdit(data._id)}>Edit</button>
-              </td>
               <td>
+                <Link to="/handle_edit"></Link>
+                <button>Edit</button>
+              </td>
+              {/* <td>
                 <button onClick={() => handleSave(data._id)}>Save</button>
               </td> */}
             </tr>
